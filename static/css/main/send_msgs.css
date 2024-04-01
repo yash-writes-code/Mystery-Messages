@@ -1,0 +1,38 @@
+/* General Styles */
+.form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  form {
+    width: 80%; /* Adjust the width of the form */
+    max-width: 400px; /* Set a maximum width if desired */
+    margin: 0 auto; /* Center the form horizontally */
+  }
+  
+  input[type="text"],
+  textarea {
+    width: 100%; /* Adjust the width of the input fields */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Add margin-bottom to create space between fields */
+  }
+  
+  input[type="submit"] {
+    background-color: #ff4d4d; /* Red */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #ff6666; /* Lighter shade of red on hover */
+  }
+  

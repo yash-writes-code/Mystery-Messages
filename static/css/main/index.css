@@ -1,0 +1,52 @@
+/* Slider Styles */
+#slider {
+    background-color: #000; /* Black */
+    color: white;
+    padding: 50px 0;
+    overflow: hidden; /* Hide overflow */
+    height: 30vh;
+  }
+  
+  .slides {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    animation: scrollAnimation 10s linear infinite; /* Adjust animation duration as needed */
+  }
+  
+  .slides img {
+   
+    height: 100%;
+    width: auto ;
+  }
+  
+  @keyframes scrollAnimation {
+    0% {
+      transform: translateX(0); /* Start from initial position */
+    }
+    100% {
+      transform: translateX(-100%); /* Move entire slider container to the left by 100% */
+    }
+  }
+  
+  button {
+    background-color: #ff4d4d; /* Red */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 1rem;
+  }
+  
+  button a{
+    text-decoration: none;
+    color:white;
+    font-size: 16px;
+  }
+
+  button:hover {
+    background-color: green; /* Lighter shade of red on hover */
+  }
+  

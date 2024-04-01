@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href={% static "css/user_auth/login.css" %}
+{% endblock extra_css %}  
+{% block content %}
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Login">
+    
+    <p>Don't have an account? <a href="{% url 'user_auth:signup' %}">Sign Up</a></p>
+        </form>
+{% endblock %}
+
+
+

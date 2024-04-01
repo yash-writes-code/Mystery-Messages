@@ -1,0 +1,27 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}Mystery Messages{% endblock title %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/main/index.css' %}">
+{% endblock %}
+
+{% block content %}
+<section id="slider">
+    <div class="slides">
+      <img src="{% static "img/main/slider.png" %}" alt="Image 1">
+      <img src="{% static "img/main/slider.png" %}" alt="Image 2">
+      <img src="{% static "img/main/slider.png" %}" alt="Image 3">
+      <!-- Add more images here -->
+    </div>
+  </section>
+
+  <section id="main">
+    <div class="container">
+      <h2>Welcome to Mystery Messages</h2>
+      <p>With Mystery Messages, you can recieve messages from your friends anonymously and share your replies on socials.
+        <br><br><span>Have Fun!</span>
+      </p>
+      <button><a href="{% url 'user_auth:signup' %}">Get Started</a></button>
+    </div>
+  </section>
+{% endblock content %}

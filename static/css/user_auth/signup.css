@@ -1,0 +1,38 @@
+/* General Styles */
+form {
+    width: 80%; /* Adjust the width of the form */
+    max-width: 400px; /* Set a maximum width if desired */
+    margin: 0 auto; /* Center the form horizontally */
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%; /* Adjust the width of the input fields */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Add margin-bottom to create space between fields */
+  }
+  
+  .errorlist {
+    color: red; /* Color for error messages */
+    margin-top: 5px; /* Add margin-top to create space above error messages */
+  }
+  
+  input[type="submit"] {
+    background-color: #ff4d4d; /* Red */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #ff6666; /* Lighter shade of red on hover */
+  }
+  

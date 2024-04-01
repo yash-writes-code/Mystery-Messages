@@ -1,0 +1,80 @@
+#mysteryMessage {
+    width: 720px; /* Increase width */
+    height: 1280px; /* Increase height */
+    background-color: black;
+    position: relative;
+    border: 2px solid white;
+    /* border-radius: 1rem; */
+    text-align: center; /* Center the content */
+    padding-top: 20px; /* Add some padding to top */
+    /* margin-bottom: 50px; */
+    max-height: 600px;
+}
+
+#messageBox {
+    width: 80%; /* Adjust width */
+    max-width: 600px; /* Adjust max-width */
+    margin: 0 auto; /* Center the box horizontally */
+    margin-top: 200px;
+}
+
+#messageContent {
+    height: 50%;
+    background: linear-gradient(to right,red, orange); /* Orange horizontal gradient */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 1rem 1rem 0 0;
+}
+
+#messageContent p {
+    margin: 0;
+    color: #ffffff;
+}
+
+#messageContent #nickname {
+    font-weight: bold;
+}
+
+#messageText {
+    height: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:20px;
+    border-radius: 0 0 1rem 1rem;
+}
+
+#messageText p {
+    margin: 0;
+    color: black;
+}
+
+
+
+#captureButton {
+    margin-top: 20px; /* Increase margin top */
+}
+
+
+/* Add Instagram icon (you can replace this with your own icon) */
+.instagram-icon::before {
+    content: "\f16d"; /* Unicode for Instagram icon */
+    font-family: "Font Awesome 5 Brands"; /* Font Awesome brands font */
+    margin-right: 5px;
+}
+
+/* Style for the share text */
+#shareText {
+    color: black; /* White text color */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    font-size: 20px;
+}
+
+#shareText:hover {
+    color: green; /* Underline text on hover */
+    font-size: 22px;
+}
+

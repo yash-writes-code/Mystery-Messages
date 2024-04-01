@@ -1,0 +1,30 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/main/msg.css' %}">
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+{% endblock extra_css %}
+{% block content %}
+
+<center>
+    <div id="mysteryMessage">
+      <div id="messageBox">
+        <div id="messageContent">
+          <p>Message from <span id="nickname">{{msg.name}}</span></p>
+        </div>
+          <div id="messageText">
+              <p>{{msg.message}}</p>
+          </div>
+      </div>
+      <p id="mysteryText">Mystery Messages</p>
+     
+    </div>
+    
+    <p id="shareText">Share on <i class="fa-brands fa-instagram"></i></p>
+</center>
+   
+ 
+
+  <script src="{% static "js/main/insta_story.js" %}"></script>
+
+{% endblock content %}

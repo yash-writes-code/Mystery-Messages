@@ -1,0 +1,56 @@
+/* General Styles */
+.content {
+    background-color: #f2f2f2; /* Light gray */
+    padding: 20px;
+  }
+  
+  .link {
+    margin-bottom: 20px;
+  }
+  
+  .get-messages {
+    
+    color: blue;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .get-messages:hover {
+    background-color: #ff6666; /* Lighter shade of red on hover */
+  }
+  
+  .msgs {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+  }
+  
+  .msgs h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .msgs ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .msgs li {
+    margin-bottom: 10px;
+  }
+  
+  .msgs .msg-link {
+    /* text-decoration: none; */
+    color: #333; /* Dark gray for links */
+  }
+  
+  .msgs .msg-link:hover {
+    text-decoration: underline;
+  }
+  
+  .msgs .msg-date {
+    color: #666; /* Medium gray for date */
+  }
+  

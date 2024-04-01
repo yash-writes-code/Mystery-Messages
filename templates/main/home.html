@@ -1,0 +1,35 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/main/home.css' %}">
+{% endblock extra_css %}
+
+{% block content %}
+
+{% with request.build_absolute_uri as base_url %}
+    
+<div class="link">
+    <a href="{% url 'main:send_msgs' user.id %}" style="display:none" id="link">Get Messages</a>
+    <button onclick="CopyLink('{{base_url}}')" class="get-messages">Get Messages</button>
+</div>
+
+<div class="msgs">
+    <h2>All Messages</h2>
+    <ul>
+    {% for msg in msgs %}
+        <li>
+            <a href="{% url 'main:message_details' msg.id %}" class="msg-link">{{ msg.nickname }}</a>
+            <span class="msg-date">{{ msg.date_time|date:"d/m/Y" }}</span>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+
+{% endwith %}
+<script src="{% static 'js/main/copy.js' %}"></script>
+
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+{% endblock %}
