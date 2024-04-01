@@ -1,3 +1,4 @@
 python3.9 -m venv myenv
 source myenv/bin/activate
-pip install -r requirements.txt
+python3.9 -m pip install -r requirements.txt
+ 
