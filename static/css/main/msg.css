@@ -1,61 +1,75 @@
-
-/* Base styles */
+/* Base styles with added responsiveness */
 #mysteryMessage {
-    width: 720px;
-    max-width: 96%; /* Ensure it doesn't exceed the screen width */
-    height: auto; /* Make height responsive */
+    width: 720px; /* Original width */
+    max-width: 96%; /* Ensure it doesn't exceed the viewport width */
+    height: 1280px; /* Original height */
     background-color: black;
     position: relative;
     border: 2px solid white;
     text-align: center;
     padding-top: 20px;
-    margin: 0 auto; /* Center horizontally */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    margin: auto; /* Center the div horizontally */
+    box-sizing: border-box; /* Include padding and border in width calculation */
 }
 
 #messageBox {
     width: 80%;
-    max-width: 600px; /* This should already constrain its width on mobile */
-    margin: 20px auto 0; /* Increased top margin, auto centers horizontally */
-    padding: 0 10px; /* Add some padding */
-    box-sizing: border-box;
+    max-width: 600px; /* Adjust based on parent size, not screen size */
+    margin: 0 auto; /* Center it within its parent */
+    margin-top: 200px; /* Original margin from the top */
 }
 
-#messageContent, #messageText {
+#messageContent {
+    height: 50%;
+    background: linear-gradient(to right, red, orange); /* Retain gradient */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 20px;
-    box-sizing: border-box; /* Include padding in the height calculation */
+    border-radius: 1rem 1rem 0 0; /* Rounded corners on top */
 }
 
-/* Adjustments for smaller devices */
-@media (max-width: 768px) {
-    #mysteryMessage {
-        width: auto; /* Allow it to adjust based on screen size */
-        border-width: 1px; /* Thinner border on smaller screens */
-        padding-top: 10px; /* Less padding on top */
-    }
-
-    #messageBox {
-        margin-top: 10%; /* Use percentage to give dynamic spacing based on screen height */
-    }
-
-    #messageContent, #messageText {
-        padding: 10px; /* Less padding for smaller screens */
-    }
+#messageContent p, #messageText p {
+    margin: 0;
 }
 
-/* Styles for text and Instagram icon, assuming they're fine as they are */
+#messageContent #nickname {
+    font-weight: bold;
+    color: #ffffff; /* Ensure nickname is visible */
+}
+
+#messageText {
+    height: 50%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 0 0 1rem 1rem; /* Rounded corners on bottom */
+}
+
 #shareText {
     color: black;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 20px; /* Original font size for share text */
 }
 #shareText:hover {
-    color: green;
+    color: green; /* Hover effect for share text */
     font-size: 22px;
 }
 
-.instagram-icon::before {
-    content: "\f16d";
-    font-family: "Font Awesome 5 Brands";
-    margin-right: 5px;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #mysteryMessage {
+        width: auto; /* Allow the width to adjust to smaller screens */
+        height: auto; /* Adjust height based on content */
+        min-height: 500px; /* Minimum height to maintain some form */
+        padding-top: 10px; /* Reduced padding */
+    }
+
+    #messageBox {
+        margin-top: 100px; /* Reduced top margin for smaller screens */
+    }
+
+    /* Optionally adjust font sizes, padding, or other properties for smaller screens */
 }
