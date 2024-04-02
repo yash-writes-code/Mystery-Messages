@@ -67,9 +67,11 @@
         padding-top: 10px; /* Reduced padding */
     }
 
-    #messageBox {
-        margin-top: 100px; /* Reduced top margin for smaller screens */
+    /* #messageBox {
+        margin-top: 100px; 
+    } */
+    #mysteryText{
+        font-size: 50px;
     }
-
     /* Optionally adjust font sizes, padding, or other properties for smaller screens */
 }
