@@ -18,7 +18,7 @@ shareText.addEventListener('click', () => {
   console.log(typeof cloneMessage.childNodes[1]);
   cloneMessage.childNodes[1].style.fontSize='30px';
   // console.log(cloneMessage.childNodes);
-  html2canvas(cloneMessage.childNodes[1]).then(canvas => {
+  html2canvas(cloneMessage.childNodes).then(canvas => {
     const imgData = canvas.toDataURL('image/png');
     const link = document.createElement('a');
     link.download = 'mystery-message.png';

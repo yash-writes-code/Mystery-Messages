@@ -1,80 +1,61 @@
+
+/* Base styles */
 #mysteryMessage {
-    width: 720px; /* Increase width */
-    height: 1280px; /* Increase height */
+    width: 720px;
+    max-width: 96%; /* Ensure it doesn't exceed the screen width */
+    height: auto; /* Make height responsive */
     background-color: black;
     position: relative;
     border: 2px solid white;
-    /* border-radius: 1rem; */
-    text-align: center; /* Center the content */
-    padding-top: 20px; /* Add some padding to top */
-    /* margin-bottom: 50px; */
-    max-height: 600px;
+    text-align: center;
+    padding-top: 20px;
+    margin: 0 auto; /* Center horizontally */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 #messageBox {
-    width: 80%; /* Adjust width */
-    max-width: 600px; /* Adjust max-width */
-    margin: 0 auto; /* Center the box horizontally */
-    margin-top: 200px;
+    width: 80%;
+    max-width: 600px; /* This should already constrain its width on mobile */
+    margin: 20px auto 0; /* Increased top margin, auto centers horizontally */
+    padding: 0 10px; /* Add some padding */
+    box-sizing: border-box;
 }
 
-#messageContent {
-    height: 50%;
-    background: linear-gradient(to right,red, orange); /* Orange horizontal gradient */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#messageContent, #messageText {
     padding: 20px;
-    border-radius: 1rem 1rem 0 0;
+    box-sizing: border-box; /* Include padding in the height calculation */
 }
 
-#messageContent p {
-    margin: 0;
-    color: #ffffff;
+/* Adjustments for smaller devices */
+@media (max-width: 768px) {
+    #mysteryMessage {
+        width: auto; /* Allow it to adjust based on screen size */
+        border-width: 1px; /* Thinner border on smaller screens */
+        padding-top: 10px; /* Less padding on top */
+    }
+
+    #messageBox {
+        margin-top: 10%; /* Use percentage to give dynamic spacing based on screen height */
+    }
+
+    #messageContent, #messageText {
+        padding: 10px; /* Less padding for smaller screens */
+    }
 }
 
-#messageContent #nickname {
-    font-weight: bold;
-}
-
-#messageText {
-    height: 50%;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding:20px;
-    border-radius: 0 0 1rem 1rem;
-}
-
-#messageText p {
-    margin: 0;
-    color: black;
-}
-
-
-
-#captureButton {
-    margin-top: 20px; /* Increase margin top */
-}
-
-
-/* Add Instagram icon (you can replace this with your own icon) */
-.instagram-icon::before {
-    content: "\f16d"; /* Unicode for Instagram icon */
-    font-family: "Font Awesome 5 Brands"; /* Font Awesome brands font */
-    margin-right: 5px;
-}
-
-/* Style for the share text */
+/* Styles for text and Instagram icon, assuming they're fine as they are */
 #shareText {
-    color: black; /* White text color */
-    cursor: pointer; /* Change cursor to pointer on hover */
+    color: black;
+    cursor: pointer;
     font-size: 20px;
 }
-
 #shareText:hover {
-    color: green; /* Underline text on hover */
+    color: green;
     font-size: 22px;
 }
 
+.instagram-icon::before {
+    content: "\f16d";
+    font-family: "Font Awesome 5 Brands";
+    margin-right: 5px;
+}
