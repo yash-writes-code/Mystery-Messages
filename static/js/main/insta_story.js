@@ -1,33 +1,42 @@
-const mysteryMessage = document.getElementById('mysteryMessage');
+document.getElementById('shareText').addEventListener('click', function() {
+  const mysteryMessage = document.getElementById('mysteryMessage');
 
-// Create a duplicate element off-screen for capturing
-const cloneMessage = mysteryMessage.cloneNode(true);
-cloneMessage.style.position = 'absolute';
-cloneMessage.style.left = '-9999px'; // Move off-screen
+  // Create a clone to avoid modifying the original
+  const cloneMessage = mysteryMessage.cloneNode(true);
+  document.body.appendChild(cloneMessage);
 
-document.body.appendChild(cloneMessage);
+  // Set explicit dimensions for consistency
+  cloneMessage.style.width = '720px';
+  cloneMessage.style.height = '1280px';
+  cloneMessage.style.position = 'fixed';
+  cloneMessage.style.left = '0';
+  cloneMessage.style.top = '0';
+  cloneMessage.style.visibility = 'hidden';
 
-// Set share text click handler
-const shareText = document.getElementById('shareText');
-shareText.addEventListener('click', () => {
-  // Store original height
-  const originalHeight = cloneMessage.style.height;
+  // Adjust scale to ensure high-quality rendering
+  html2canvas(cloneMessage, {
+      scale: window.devicePixelRatio, // Capture at the device's pixel ratio
+  }).then(canvas => {
+      // Remove the clone to clean up the document
+      document.body.removeChild(cloneMessage);
 
-  // Set maxHeight for capturing full length
-  cloneMessage.style.maxHeight = '1280px';
-  console.log(typeof cloneMessage.childNodes[1]);
-  cloneMessage.childNodes[1].style.fontSize='30px';
-  // console.log(cloneMessage.childNodes);
-  html2canvas(cloneMessage).then(canvas => {
-    const imgData = canvas.toDataURL('image/png');
-    const link = document.createElement('a');
-    link.download = 'mystery-message.png';
-    link.href = imgData;
-    link.click();
+      // Create a new canvas to adjust the final image dimensions
+      const finalCanvas = document.createElement('canvas');
+      finalCanvas.width = 720; // Set the final image width
+      finalCanvas.height = 1280; // Set the final image height
+      const ctx = finalCanvas.getContext('2d');
 
-    // Reset the maxHeight after capturing
-    cloneMessage.style.maxHeight = originalHeight;
+      // Draw the captured canvas onto the final canvas at desired dimensions
+      ctx.drawImage(canvas, 0, 0, finalCanvas.width, finalCanvas.height);
 
-    alert("Instgram Story Template downloaded");
+      // Convert to DataURL or Blob as needed
+      finalCanvas.toBlob(blob => {
+          const link = document.createElement('a');
+          link.download = 'mystery-message.png';
+          link.href = URL.createObjectURL(blob);
+          link.click();
+          // Remember to revoke the blobURI when done
+          URL.revokeObjectURL(link.href);
+      }, 'image/png');
   });
 });
