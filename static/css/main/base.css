@@ -24,8 +24,12 @@ body {
     height: 12vh;
   }
   
-  #mysteryText {
-    
+  .mysteryText {
+    color: white;
+    padding: 20px;
+    font-family: 'Brush Script MT', cursive; /* Use cursive font */
+    font-size: x-large;
+    height: 12vh;
     margin: 0;
   }
   
