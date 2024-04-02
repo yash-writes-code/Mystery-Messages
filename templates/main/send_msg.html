@@ -12,6 +12,16 @@
         
         <input type="submit" value="Submit">
 </form> 
+{% if messages %}
+{% for message in messages %}
+    {% if message.tags == 'success' %}
+        <script>
+            // Display JavaScript alert after form submission
+            alert('{{ message }}');
+        </script>
+    {% endif %}
+{% endfor %}
+{% endif %}
 
 <br> <br>
 <center><a href="{% url "main:home" %}" style="margin-top:5px;"> Get Your Own Messages </a>

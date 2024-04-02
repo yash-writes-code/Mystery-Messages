@@ -5,7 +5,7 @@
     height: 1280px; /* Original height */
     background-color: black;
     position: relative;
-    border: 2px solid white;
+    /* border: 2px solid white; */
     text-align: center;
     padding-top: 20px;
     margin: auto; /* Center the div horizontally */

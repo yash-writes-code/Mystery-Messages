@@ -7,6 +7,8 @@ from django.urls import reverse_lazy,reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
+from django.contrib import messages
+
 
 # def show_msgs(request):
 #     msgs=Message.objects.all()
@@ -47,12 +49,17 @@ class Msg(DetailView,LoginRequiredMixin):
 class Send_Msgs(CreateView):
     form_class = Message_Form  # Correctly reference the form class
     template_name = "main/send_msg.html"
-    success_url = reverse_lazy("main:home")
     model = Message
     
     def form_valid(self, form):
         form.instance.to = get_object_or_404(User, id=self.kwargs.get('pk'))
+        messages.success(self.request, 'Form submitted successfully')
         return super().form_valid(form)
+    
+    def get_success_url(self):
+        # Return the URL of the current page
+        id=self.kwargs.get('pk')
+        return reverse_lazy(f'main:send_msgs {id}')
     
     
       
