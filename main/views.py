@@ -53,13 +53,13 @@ class Send_Msgs(CreateView):
     
     def form_valid(self, form):
         form.instance.to = get_object_or_404(User, id=self.kwargs.get('pk'))
-        messages.success(self.request, 'Form submitted successfully')
+        messages.success(self.request, 'Message Sent')
         return super().form_valid(form)
     
     def get_success_url(self):
         # Return the URL of the current page
         id=self.kwargs.get('pk')
-        return reverse_lazy(f'main:send_msgs {id}')
+        return reverse_lazy('main:send_msgs',kwargs={"pk":id})
     
     
       
