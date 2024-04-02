@@ -73,3 +73,9 @@
    
     /* Optionally adjust font sizes, padding, or other properties for smaller screens */
 }
+
+#mysteryText2{
+    color: white;
+    font-family: 'Brush Script MT', cursive;
+    font-size: xx-large;
+}
