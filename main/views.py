@@ -1,14 +1,11 @@
 from django.db.models.base import Model as Model
-from django.db.models.query import QuerySet
-from django.forms import BaseModelForm
-from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render,redirect
 from .models import Message
 from django.views.generic import ListView,DetailView,FormView,CreateView
 from forms.message_form import Message_Form
 from django.urls import reverse_lazy,reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.conf import settings
+from django.contrib.auth.models import User
 
 # def show_msgs(request):
 #     msgs=Message.objects.all()
@@ -53,7 +50,7 @@ class Send_Msgs(CreateView):
     model = Message
     
     def form_valid(self, form):
-        form.instance.to=self.slug_url_kwarg["pk"]
+        form.instance.to= User.objects.all().filter(id= self.slug_url_kwarg["pk"])
         print(form.instance.message)
         return super().form_valid(form)
     
