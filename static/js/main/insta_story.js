@@ -16,27 +16,18 @@ document.getElementById('shareText').addEventListener('click', function() {
   // Adjust scale to ensure high-quality rendering
   html2canvas(cloneMessage, {
       scale: window.devicePixelRatio, // Capture at the device's pixel ratio
+      scrollY: -window.scrollY // Capture entire content even if scrolled
   }).then(canvas => {
       // Remove the clone to clean up the document
       document.body.removeChild(cloneMessage);
 
-      // Create a new canvas to adjust the final image dimensions
-      const finalCanvas = document.createElement('canvas');
-      finalCanvas.width = 720; // Set the final image width
-      finalCanvas.height = 1280; // Set the final image height
-      const ctx = finalCanvas.getContext('2d');
-
-      // Draw the captured canvas onto the final canvas at desired dimensions
-      ctx.drawImage(canvas, 0, 0, finalCanvas.width, finalCanvas.height);
-
       // Convert to DataURL or Blob as needed
-      finalCanvas.toBlob(blob => {
-          const link = document.createElement('a');
-          link.download = 'mystery-message.png';
-          link.href = URL.createObjectURL(blob);
-          link.click();
-          // Remember to revoke the blobURI when done
-          URL.revokeObjectURL(link.href);
-      }, 'image/png');
+      const imgData = canvas.toDataURL('image/png');
+
+      // Create a link and trigger download
+      const link = document.createElement('a');
+      link.download = 'mystery-message.png';
+      link.href = imgData;
+      link.click();
   });
 });
