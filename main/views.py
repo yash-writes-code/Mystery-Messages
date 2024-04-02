@@ -6,6 +6,7 @@ from forms.message_form import Message_Form
 from django.urls import reverse_lazy,reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 
 # def show_msgs(request):
 #     msgs=Message.objects.all()
@@ -50,8 +51,7 @@ class Send_Msgs(CreateView):
     model = Message
     
     def form_valid(self, form):
-        form.instance.to= User.objects.all().filter(id= self.slug_url_kwarg["pk"])
-        print(form.instance.message)
+        form.instance.to = get_object_or_404(User, id=self.kwargs.get('pk'))
         return super().form_valid(form)
     
     
