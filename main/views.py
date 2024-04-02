@@ -53,7 +53,7 @@ class Send_Msgs(CreateView):
     model = Message
     
     def form_valid(self, form):
-        form.instance.to=self.request.user
+        form.instance.to=self.slug_url_kwarg["pk"]
         print(form.instance.message)
         return super().form_valid(form)
     
