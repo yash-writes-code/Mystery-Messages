@@ -28,7 +28,7 @@ urlpatterns = [
     path("auth/login/",Login.as_view(),name="login"),
     path("auth/",include("django.contrib.auth.urls")),
     path("auth/",include("user_auth.urls")),
-    
+    path("", include("pwa.urls"))
 ]
 
 
