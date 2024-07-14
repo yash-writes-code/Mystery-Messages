@@ -28,7 +28,7 @@ class Home(ListView,LoginRequiredMixin):
     
     def dispatch(self, request, *args, **kwargs):
         if not request.user.is_authenticated:
-            return redirect("auth/login/")
+            return redirect(reverse("user_auth:login"))
         return super().dispatch(request, *args, **kwargs)
     
 

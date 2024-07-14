@@ -138,8 +138,8 @@ STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles_build','static')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 from django.urls import reverse_lazy
-LOGIN_URL="auth/login"
-LOGIN_REDIRECT_URL="/"
+LOGIN_URL=reverse_lazy("user_auth:login")
+LOGIN_REDIRECT_URL=reverse_lazy("main:home")
 LOGOUT_REDIRECT_URL=reverse_lazy("main:index")
 
 #PWA SETTINGS
